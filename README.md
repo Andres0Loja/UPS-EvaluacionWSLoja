@@ -158,55 +158,6 @@ $env:DB_PASSWORD="postgres"
 .\mvnw.cmd spring-boot:run
 ```
 
-## Endpoints principales
-
-### Crear persona
-
-```http
-POST /api/personas
-Content-Type: application/json
-```
-
-```json
-{
-  "cedula": "0102030405",
-  "nombre": "Ana Loja",
-  "telefono": "0999999999"
-}
-```
-
-### Consultar persona por cedula
-
-```http
-GET /api/personas/0102030405
-```
-
-### Listar personas
-
-```http
-GET /api/personas
-```
-
-### Registrar titulo para una persona
-
-```http
-POST /api/personas/0102030405/titulos
-Content-Type: application/json
-```
-
-```json
-{
-  "nombre": "Ingenieria en Sistemas",
-  "universidad": "Universidad Politecnica Salesiana"
-}
-```
-
-### Listar titulos por cedula
-
-```http
-GET /api/personas/0102030405/titulos
-```
-
 ### Consultar titulo por ID
 
 ```http
@@ -217,30 +168,6 @@ GET /api/titulos/1
 
 ```http
 GET /api
-```
-
-## Ejemplos con curl
-
-Crear persona:
-
-```powershell
-curl.exe -X POST http://localhost:8080/api/personas `
-  -H "Content-Type: application/json" `
-  -d "{\"cedula\":\"0102030405\",\"nombre\":\"Ana Loja\",\"telefono\":\"0999999999\"}"
-```
-
-Registrar titulo:
-
-```powershell
-curl.exe -X POST http://localhost:8080/api/personas/0102030405/titulos `
-  -H "Content-Type: application/json" `
-  -d "{\"nombre\":\"Ingenieria en Sistemas\",\"universidad\":\"Universidad Politecnica Salesiana\"}"
-```
-
-Listar titulos:
-
-```powershell
-curl.exe http://localhost:8080/api/personas/0102030405/titulos
 ```
 
 ## Problemas comunes
@@ -272,14 +199,6 @@ $env:DB_URL="jdbc:postgresql://localhost:5433/evaluacion_ws_loja"
 ### Primer uso de Maven Wrapper lento
 
 La primera ejecucion descarga Apache Maven y las dependencias del proyecto desde Maven Central.
-
-## Datos de prueba
-
-Flyway crea una persona y un titulo de ejemplo:
-
-- Cedula: `0102030405`
-- Nombre: `Ana Loja`
-- Titulo: `Ingenieria en Sistemas`
 
 ## Cambios frente al proyecto original
 
