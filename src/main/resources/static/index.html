@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>UPS Evaluacion WS Loja</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/config.js"></script>
+</head>
+<body>
+  <header class="app-header">
+    <div>
+      <h1>Personas y titulos academicos</h1>
+      <p>Gestion por cedula, registro de titulos y consulta de historial academico.</p>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="panel">
+      <h2>Crear persona</h2>
+      <form id="persona-form" class="form">
+        <label>
+          Cedula
+          <input id="persona-cedula" name="cedula" maxlength="10" required>
+        </label>
+        <label>
+          Nombre
+          <input id="persona-nombre" name="nombre" required>
+        </label>
+        <label>
+          Telefono
+          <input id="persona-telefono" name="telefono">
+        </label>
+        <button type="submit">Crear persona</button>
+      </form>
+      <div id="persona-create-message" class="message" role="status"></div>
+    </section>
+
+    <section class="panel">
+      <h2>Buscar persona</h2>
+      <form id="buscar-form" class="form inline">
+        <label>
+          Cedula
+          <input id="buscar-cedula" maxlength="10" required>
+        </label>
+        <button type="submit">Buscar</button>
+      </form>
+      <div id="persona-result" class="result"></div>
+    </section>
+
+    <section class="panel">
+      <h2>Registrar titulo</h2>
+      <form id="titulo-form" class="form">
+        <label>
+          Cedula de persona
+          <input id="titulo-cedula" maxlength="10" required>
+        </label>
+        <label>
+          Titulo
+          <input id="titulo-nombre" required>
+        </label>
+        <label>
+          Universidad
+          <input id="titulo-universidad" required>
+        </label>
+        <button type="submit">Registrar titulo</button>
+      </form>
+      <div id="titulo-create-message" class="message" role="status"></div>
+    </section>
+
+    <section class="panel wide">
+      <div class="section-row">
+        <h2>Titulos por persona</h2>
+        <form id="titulos-form" class="form inline">
+          <label>
+            Cedula
+            <input id="titulos-cedula" maxlength="10" required>
+          </label>
+          <button type="submit">Listar</button>
+        </form>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Titulo</th>
+              <th>Universidad</th>
+              <th>Fecha</th>
+            </tr>
+          </thead>
+          <tbody id="titulos-table"></tbody>
+        </table>
+      </div>
+      <div id="titulos-message" class="message" role="status"></div>
+    </section>
+
+    <section class="panel wide">
+      <div class="section-row">
+        <h2>Personas registradas</h2>
+        <button id="refresh-personas" type="button">Actualizar</button>
+      </div>
+      <div id="personas-list" class="cards"></div>
+    </section>
+  </main>
+
+  <script src="/app.js"></script>
+</body>
+</html>
